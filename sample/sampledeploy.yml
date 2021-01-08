@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace:  samplejava1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+        app: sample1
+        tier: frontend
+  template:
+    metadata:
+      labels:
+        app: sample1
+        tier: frontend
+    spec:
+      containers:
+      - name: mssdevops-284216
+        image: us.gcr.io/mssdevops-284216/project1-46
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
